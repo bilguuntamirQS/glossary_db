@@ -9,7 +9,7 @@ with open('users.csv') as file:
 
   next(reader)
   for row in reader:
-    values.append((row[0], row[1], '$2a$12$4c7SKvdcEhbBpeK25BE3ce4cdlLflNVnsGa8QT2nbiYQ52y7gQVjq', int(row[4]) - 1, row[5], row[5]))
+    values.append((row[0], row[1], row[2], '$2a$12$4c7SKvdcEhbBpeK25BE3ce4cdlLflNVnsGa8QT2nbiYQ52y7gQVjq', int(row[4]) - 1, row[5], row[5]))
 
 import mysql.connector
 
@@ -22,7 +22,7 @@ db = mysql.connector.connect(
 
 cursor = db.cursor()
 
-sql = "INSERT INTO admin_users ( email, name, encrypted_password, permission, created_at, updated_at) VALUES ( %s, %s, %s, %s, %s, %s)"
+sql = "INSERT INTO admin_users ( email, name, lname, encrypted_password, permission, created_at, updated_at) VALUES ( %s, %s, %s, %s, %s, %s, %s)"
 
 cursor.executemany(sql, values)
 

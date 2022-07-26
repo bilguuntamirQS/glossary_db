@@ -26,7 +26,6 @@ with open('translations.csv') as file:
       user = (1, )
     cursor.execute("SELECT id FROM words WHERE id = %s", (int(row[1]), ))
     word = cursor.fetchone()
-    print(word)
     if word is not None:
       values.append((int(row[0]), int(row[1]), row[2], str(row[3]), int(row[4]), int(user[0]), row[6], row[6]))
 

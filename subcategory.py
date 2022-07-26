@@ -20,7 +20,7 @@ with open('subareas.csv') as file:
 
   next(reader)
   for row in reader:
-    if row[3] is 'NULL':
+    if row[3] == 'NULL':
       row[3] = None
     values.append((int(row[0]) + 7, row[1], row[2], row[3], row[4], row[4]))
 
